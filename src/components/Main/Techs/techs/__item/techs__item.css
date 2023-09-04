@@ -1,0 +1,24 @@
+.techs__item {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 90px;
+  min-height: 60px;
+  border-radius: 10px;
+  background-color: #303030;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.8px;
+}
+
+@media screen and (max-width: 850px) {
+  .techs__item {
+    min-width: 84px;
+    min-height: 57px;
+    font-size: 12px;
+  }
+}

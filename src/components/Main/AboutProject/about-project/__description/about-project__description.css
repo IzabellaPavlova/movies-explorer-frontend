@@ -1,0 +1,11 @@
+.about-project__description {
+  display: flex;
+  flex-direction: column;
+  max-width: 550px;
+}
+
+@media screen and (max-width: 850px) {
+  .about-project__description {
+    max-width: 319px;
+  }
+}

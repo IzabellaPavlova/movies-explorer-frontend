@@ -1,0 +1,38 @@
+.portfolio__link {
+  margin: 0;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  font-size: 30px;
+  font-style: normal;
+  line-height: 50px;
+  font-weight: 400;
+  color: #FFFFFF;
+  letter-spacing: -0.8px;
+  transition: opacity .2s linear;
+  background-image: url('../../../../../images/link.svg');
+  background-repeat: no-repeat;
+  background-position: 99.5% 56%;
+}
+
+.portfolio__link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+  .portfolio__link {
+    font-size: 28px;
+    background-position: 99.2% 60%;
+    background-size: 18px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+    background-position: 98.5% 50%;
+    background-size: 12px;
+  }
+}

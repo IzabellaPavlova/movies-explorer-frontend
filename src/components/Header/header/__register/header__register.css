@@ -1,0 +1,16 @@
+.header__register {
+  margin: 0;
+  text-decoration: none;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+  max-width: 100%;
+  transition: opacity .2s linear;
+}
+
+.header__register:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

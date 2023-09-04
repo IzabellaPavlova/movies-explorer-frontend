@@ -1,0 +1,22 @@
+.navtab {
+  margin: -66px 40px 0;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #272727;
+  border-radius: 0 0 10px 10px;
+}
+
+@media screen and (max-width: 850px) {
+  .navtab {
+    margin: -66px 20px 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navtab {
+    margin: -43px 14px 0;
+    padding-bottom: 17px;
+  }
+}

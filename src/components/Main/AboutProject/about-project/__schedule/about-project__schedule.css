@@ -1,0 +1,4 @@
+.about-project__schedule {
+  display: flex;
+  flex-direction: row;
+}
