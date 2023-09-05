@@ -4,6 +4,12 @@
 /* Setting background colour and width */
 @import url('./components/App/App.css');
 
+/* Logo */
+@import url('./components/Logo/Logo.css');
+
+/* Auth */
+@import url('./components/Auth/Auth.css');
+
 /* Header */
 @import url('./components/Header/Header.css');
 

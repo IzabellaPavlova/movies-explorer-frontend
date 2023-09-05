@@ -1,0 +1,12 @@
+.auth__buttons {
+  margin: 69px 0 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  .auth__buttons {
+    margin: 157px 0 0;
+  }
+}

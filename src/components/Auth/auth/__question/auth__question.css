@@ -1,0 +1,14 @@
+.auth__question {
+  margin: 0;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  color: #8B8B8B;
+}
+
+@media screen and (max-width: 600px) {
+  .auth__question {
+    font-size: 12px;
+  }
+}
