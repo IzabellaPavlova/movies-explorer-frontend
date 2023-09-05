@@ -1,0 +1,23 @@
+.nav-menu__popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.nav-menu__popup::before {
+  position: absolute;
+  content: "";
+  opacity: .5;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+}

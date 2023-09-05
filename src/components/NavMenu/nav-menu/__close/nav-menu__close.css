@@ -1,0 +1,21 @@
+.nav-menu__close {
+  margin: 23px 23px 0 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 31px;
+  height: 31px;
+  background-image: url('../../../../images/close.svg');
+  background-repeat: no-repeat;
+  background-position: 0;
+  transition: opacity .2s linear;
+  text-decoration: none;
+  border: none;
+  background-color: #202020;
+}
+
+.nav-menu__close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

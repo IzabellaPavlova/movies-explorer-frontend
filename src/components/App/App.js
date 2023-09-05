@@ -4,7 +4,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext.js';
 import Main from '../Main/Main.js';
 // import Movies from '../Movies/Movies.js';
 // import SavedMovies from '../SavedMovies/SavedMovies.js';
-// import Profile from '../Profile/Profile.js';
+import Profile from '../Profile/Profile.js';
 import Login from '../Auth/Login/Login.js';
 import Register from '../Auth/Register/Register.js';
 
@@ -26,11 +26,11 @@ function App() {
             <Route
               path='/saved-movies'
               element={<SavedMovies />}
-            />
+            /> */}
             <Route
               path='/profile'
               element={<Profile />}
-            /> */}
+            />
           </Routes>
         </div>
       </div>

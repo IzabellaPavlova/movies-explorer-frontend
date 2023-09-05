@@ -12,9 +12,15 @@
 
 /* Header */
 @import url('./components/Header/Header.css');
+/* Navigation */
+@import url('./components/Nav/Nav.css');
+@import url('./components/NavMenu/NavMenu.css');
+
+/* Footer */
+@import url('./components/Footer/Footer.css');
 
 /* Main */
 @import url('./components/Main/Main.css');
 
-/* Footer */
-@import url('./components/Footer/Footer.css');
+/* Profile */
+@import url('./components/Profile/Profile.css');

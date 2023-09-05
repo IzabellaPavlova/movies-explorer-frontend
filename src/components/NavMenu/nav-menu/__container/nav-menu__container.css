@@ -1,0 +1,14 @@
+.nav-menu__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 159px 0 0;
+  gap: 28px;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-menu__container {
+    margin: 144px 0 0;
+    gap: 24px;
+  }
+}

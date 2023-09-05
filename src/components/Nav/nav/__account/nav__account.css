@@ -1,0 +1,29 @@
+.nav__account {
+  margin: 0 -44px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 32px;
+  background-color: #313131;
+  border-radius: 32px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity .2s linear;
+}
+
+.nav__account:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+  .nav__account {
+    visibility: hidden;
+  }
+}

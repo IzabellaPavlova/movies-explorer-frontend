@@ -1,0 +1,11 @@
+.profile__text {
+  font-size: 11px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  color: #FFFFFF;
+  max-width: 130px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
