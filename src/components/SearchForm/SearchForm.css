@@ -8,7 +8,7 @@
 @import url('./search-form/__checkbox-inner/search-form__checkbox-inner.css');
 
 .search-form__switch:checked + .search-form__checkbox-inner::before {
-  background-color: #2BE080;
+  background-color: #3DDC84;
 }
 
 .search-form__switch:checked + .search-form__checkbox-inner::after {

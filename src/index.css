@@ -26,5 +26,11 @@
 @import url('./components/Profile/Profile.css');
 
 /* Movies */
-/* SearchForm */
 @import url('./components/SearchForm/SearchForm.css');
+@import url('./components/Card/Card.css');
+@import url('./components/MoviesList/MoviesList.css');
+@import url('./components/Preloader/Preloader.css');
+@import url('./components/Preloader/Preloader.css');
+
+/* 404 */
+@import url('./components/NotFound/NotFound.css');

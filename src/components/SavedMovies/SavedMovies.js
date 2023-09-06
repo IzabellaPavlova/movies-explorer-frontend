@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import MoviesList from '../MoviesList/MoviesList';
 import SearchForm from "../SearchForm/SearchForm";
+import { moviesFavorite } from '../../utils/constants';
 
 function SavedMovies() {
   const [IsloggedIn, setIsLoggedIn] = useState(false);
@@ -20,7 +22,10 @@ function SavedMovies() {
   return (
     <div className="page">
       <Header IsloggedIn = {IsloggedIn}/>
-      <SearchForm/>
+      <main className="movies">
+        <SearchForm />
+        <MoviesList movies={moviesFavorite}/>
+      </main>
       <Footer />
     </div>
   )

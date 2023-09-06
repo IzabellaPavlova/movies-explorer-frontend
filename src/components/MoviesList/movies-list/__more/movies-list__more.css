@@ -1,0 +1,29 @@
+.movies-list__more {
+  margin: 50px auto 80px;
+  padding: 0;
+  width: 320px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: center;
+  border: 1px solid #424242;
+  border-radius: 6px;
+  background-color: #202020;
+}
+
+.movies-list__more:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .movies-list__more {
+    width: 240px;
+  }
+}

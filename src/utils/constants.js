@@ -1,5 +1,5 @@
 export
-  const moviesList = [
+  const movies = [
     {
       country: 'Россия',
       director: 'Наталья Климчук',
@@ -68,7 +68,7 @@ export
   ];
 
 export
-  const moviesFavoriteList = [
+  const moviesFavorite = [
     {
       country: 'Россия',
       director: 'Наталья Климчук',
