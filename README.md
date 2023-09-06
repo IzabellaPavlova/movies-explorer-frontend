@@ -41,3 +41,5 @@ IP 158.160.25.193
 Frontend https://movies.feierabend.nomoredomainsicu.ru
 
 Backend https://api.movies.feierabend.nomoredomainsicu.ru
+
+Figma (dark 2): https://www.figma.com/file/6FMWkB94wE7KTkcCgUXtnC/light-1?type=design&node-id=1-7266&mode=design&t=l1lTXFXLJbvfV8W8-0
