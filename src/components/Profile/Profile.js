@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Profile() {
   // const currentUser = useContext(CurrentUserContext);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [IsloggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: 'Виталий',
     email: 'pochta@yandex.ru'
@@ -16,7 +16,7 @@ function Profile() {
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
-    setLoggedIn(true);
+    setIsLoggedIn(true);
   }, []);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function Profile() {
 
   return (
     <div className='page'>
-      <Header loggedIn={loggedIn}/>
+      <Header IsloggedIn={IsloggedIn}/>
       <main>
         <section className="profile">
           <h1 className="profile__title">Привет, {currentUser.name}!</h1>

@@ -1,0 +1,19 @@
+.search-form__input {
+  margin: 0;
+  padding: 16px 0 16px 20px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background: #2F2F2F;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 600px) {
+  .search-form__input {
+    padding: 13px 0 13px 13px;
+  }
+}

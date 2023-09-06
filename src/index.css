@@ -24,3 +24,7 @@
 
 /* Profile */
 @import url('./components/Profile/Profile.css');
+
+/* Movies */
+/* SearchForm */
+@import url('./components/SearchForm/SearchForm.css');
