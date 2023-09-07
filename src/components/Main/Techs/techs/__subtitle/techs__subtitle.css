@@ -5,12 +5,13 @@
   line-height: 58px;
   font-weight: 400;
   color: #FFFFFF;
-  letter-spacing: -0.8px;
+  letter-spacing: -2px;
 }
 
 @media screen and (max-width: 600px) {
   .techs__subtitle {
     font-size: 30px;
     line-height: normal;
+    letter-spacing: -1.1px;
   }
 }

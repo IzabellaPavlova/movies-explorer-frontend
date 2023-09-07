@@ -14,20 +14,16 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className="body">
-        <div className='page'>
-          <Routes>
-            <Route path='/signin' element={<Login />}/>
-            <Route path='/signup' element={<Register />}/>
-            <Route path='/' element={<Main />}/>
-            <Route path='/movies' element={<Movies />}/>
-            <Route path='/saved-movies' element={<SavedMovies />}/>
-            <Route path='/profile' element={<Profile />}/>
-            <Route path="*" element={<Navigate to="/404" replace />}/>
-            <Route path="/404" element={<NotFound />}/>
-          </Routes>
-        </div>
-      </div>
+      <Routes>
+        <Route path='/signin' element={<Login />}/>
+        <Route path='/signup' element={<Register />}/>
+        <Route path='/' element={<Main />}/>
+        <Route path='/movies' element={<Movies />}/>
+        <Route path='/saved-movies' element={<SavedMovies />}/>
+        <Route path='/profile' element={<Profile />}/>
+        <Route path="*" element={<Navigate to="/404" replace />}/>
+        <Route path="/404" element={<NotFound />}/>
+      </Routes>
     </CurrentUserContext.Provider>
   );
 }

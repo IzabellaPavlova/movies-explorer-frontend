@@ -1,6 +1,6 @@
 .search-form {
-  margin: 80px 70px 98px;
-  padding: 0 0 40px;
+  margin: 72px 70px 80px;
+  padding: 0 0 41px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,12 +9,12 @@
 
 @media screen and (max-width: 850px) {
   .search-form {
-    margin: 80px 30px 110px;
+    margin: 76px 30px 80px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .search-form {
-    margin: 80px 14px 116px;
+    margin: 74px 14px 48px;
   }
 }

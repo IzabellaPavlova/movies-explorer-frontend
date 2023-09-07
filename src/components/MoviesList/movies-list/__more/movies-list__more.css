@@ -24,6 +24,7 @@
 
 @media screen and (max-width: 600px) {
   .movies-list__more {
+    margin: 46px auto 80px;
     width: 240px;
   }
 }

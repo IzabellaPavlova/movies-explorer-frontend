@@ -2,10 +2,10 @@ function SearchForm() {
   return (
     <section>
       <form className="search-form">
-        <label className="search-form__container">
+        <div className="search-form__container">
           <input className="search-form__input" placeholder="Фильм" required></input>
           <button className="search-form__button"></button>
-        </label>
+        </div>
         <label className="search-form__checkbox" htmlFor="checkbox">
           <input type="checkbox" role="switch" className="search-form__switch" id="checkbox"></input>
           <span className="search-form__checkbox-inner"></span>

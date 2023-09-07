@@ -11,6 +11,7 @@
   background-color: #313131;
   border-radius: 11px;
   border: none;
+  width: 72px;
 }
 
 .card__save:hover {

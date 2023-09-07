@@ -3,7 +3,7 @@ function Footer() {
     <footer className="footer">
       <h2 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
       <div className="footer__container">
-        <div className="footer__year">&copy; 2023</div>
+        <div className="footer__year">&copy;2023</div>
         <div className="footer__menu">
           <a
             className="footer__link"

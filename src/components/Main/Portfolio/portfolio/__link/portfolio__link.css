@@ -8,7 +8,7 @@
   line-height: 50px;
   font-weight: 400;
   color: #FFFFFF;
-  letter-spacing: -0.8px;
+  letter-spacing: -1.2px;
   transition: opacity .2s linear;
   background-image: url('../../../../../images/link.svg');
   background-repeat: no-repeat;
@@ -34,5 +34,6 @@
     line-height: 28px;
     background-position: 98.5% 50%;
     background-size: 12px;
+    letter-spacing: -0.75px;
   }
 }

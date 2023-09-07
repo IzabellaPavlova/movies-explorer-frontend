@@ -6,12 +6,13 @@
   line-height: 20px;
   font-weight: 400;
   color: #FFFFFF;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.6px;
   text-align: center;
 }
 
 @media screen and (max-width: 850px) {
   .techs__description {
+    letter-spacing: -0.5px;
     font-size: 12px;
     line-height: 18px;
   }
@@ -19,6 +20,7 @@
 
 @media screen and (max-width: 600px) {
   .techs__description {
+    letter-spacing: -0.45px;
     max-width: 292px;
     font-size: 11px;
     line-height: 16px;

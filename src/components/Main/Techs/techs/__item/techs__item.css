@@ -17,8 +17,15 @@
 
 @media screen and (max-width: 850px) {
   .techs__item {
+    letter-spacing: -0.5px;
     min-width: 84px;
     min-height: 57px;
     font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .techs__item {
+    letter-spacing: -0.45px;
   }
 }

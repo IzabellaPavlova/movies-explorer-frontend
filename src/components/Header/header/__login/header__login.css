@@ -20,3 +20,11 @@
   opacity: 0.6;
   cursor: pointer;
 }
+
+@media screen and (max-width: 600px) {
+  .header__login {
+    font-size: 10px;
+    min-height: 26px;
+    min-width: 54px;
+  }
+}
