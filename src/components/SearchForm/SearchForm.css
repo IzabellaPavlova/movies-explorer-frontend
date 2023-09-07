@@ -1,0 +1,21 @@
+@import url('./search-form/search-form.css');
+@import url('./search-form/__container/search-form__container.css');
+@import url('./search-form/__input/search-form__input.css');
+@import url('./search-form/__button/search-form__button.css');
+@import url('./search-form/__checkbox/search-form__checkbox.css');
+@import url('./search-form/__text/search-form__text.css');
+@import url('./search-form/__switch/search-form__switch.css');
+@import url('./search-form/__checkbox-inner/search-form__checkbox-inner.css');
+
+.search-form__switch:checked + .search-form__checkbox-inner::before {
+  background-color: #3DDC84;
+}
+
+.search-form__switch:checked + .search-form__checkbox-inner::after {
+  left: 21px;
+  background-color: #FFFFFF;
+}
+
+.search-form__switch:focus + .search-form__checkbox-inner::before {
+  outline: 1px solid gray;
+}

@@ -1,0 +1,10 @@
+.nav-menu {
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (min-width: 850px) {
+  .nav-menu {
+    visibility: hidden;
+  }
+}

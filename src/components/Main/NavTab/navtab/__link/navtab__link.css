@@ -1,0 +1,28 @@
+.navtab__link {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+  min-width: 96px;
+  min-height: 36px;
+  text-decoration: none;
+  transition: opacity .2s linear;
+}
+
+.navtab__link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .navtab__link {
+    font-size: 10px;
+    min-width: 82px;
+    min-height: 26px;
+  }
+}

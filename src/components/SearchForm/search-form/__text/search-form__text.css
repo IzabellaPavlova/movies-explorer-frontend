@@ -1,0 +1,13 @@
+.search-form__text {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 600px) {
+  .search-form__text {
+    font-size: 11px;
+  }
+}

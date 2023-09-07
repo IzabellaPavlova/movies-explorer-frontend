@@ -1,0 +1,15 @@
+.search-form__button {
+  display: flex;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 5px;
+  border: none;
+  background-image: url('../../../../images/find.svg');
+  background-color: #4285F4;
+  transition: opacity .2s linear;
+}
+
+.search-form__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

@@ -1,0 +1,16 @@
+.about-project__backend {
+  min-width: 20%;
+  text-align: center;
+}
+
+@media screen and (max-width: 850px) {
+  .about-project__backend {
+    min-width: 140px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about-project__backend {
+    min-width: 35%;
+  }
+}

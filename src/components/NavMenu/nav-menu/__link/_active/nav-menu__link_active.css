@@ -1,0 +1,10 @@
+.nav-menu__link_active {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-menu__link_active {
+    padding-bottom: 7px;
+  }
+}

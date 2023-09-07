@@ -1,0 +1,27 @@
+.card__save {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 6px 7px;
+  font-size: 10px;
+  font-style: normal;
+  line-height: 9px;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: #313131;
+  border-radius: 11px;
+  border: none;
+  width: 72px;
+}
+
+.card__save:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .card__save {
+    top: 10px;
+    right: 10px;
+  }
+}

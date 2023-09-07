@@ -1,0 +1,13 @@
+.auth__button-wrapper {
+  margin: 16px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .auth__button-wrapper {
+    margin: 14px 0 0;
+    gap: 7px;
+  }
+}

@@ -1,0 +1,13 @@
+@import url('./auth/auth.css');
+@import url('./auth/__title/auth__title.css');
+@import url('./auth/__form/auth__form.css');
+@import url('./auth/__container/auth__container.css');
+@import url('./auth/__name/auth__name.css');
+@import url('./auth/__input/auth__input.css');
+@import url('./auth/__input-error/auth__input-error.css');
+@import url('./auth/__input-error/_visible/auth__input-error_visible.css');
+@import url('./auth/__buttons/auth__buttons.css');
+@import url('./auth/__button/auth__button.css');
+@import url('./auth/__button-wrapper/auth__button-wrapper.css');
+@import url('./auth/__question/auth__question.css');
+@import url('./auth/__link/auth__link.css');

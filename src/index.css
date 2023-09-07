@@ -1,0 +1,36 @@
+@import url('./vendor/normalize.css');
+@import url('./vendor/fonts/fonts.css');
+
+/* Setting background colour and width */
+@import url('./components/App/App.css');
+
+/* Logo */
+@import url('./components/Logo/Logo.css');
+
+/* Auth */
+@import url('./components/Auth/Auth.css');
+
+/* Header */
+@import url('./components/Header/Header.css');
+/* Navigation */
+@import url('./components/Nav/Nav.css');
+@import url('./components/NavMenu/NavMenu.css');
+
+/* Footer */
+@import url('./components/Footer/Footer.css');
+
+/* Main */
+@import url('./components/Main/Main.css');
+
+/* Profile */
+@import url('./components/Profile/Profile.css');
+
+/* Movies */
+@import url('./components/SearchForm/SearchForm.css');
+@import url('./components/Card/Card.css');
+@import url('./components/MoviesList/MoviesList.css');
+@import url('./components/Preloader/Preloader.css');
+@import url('./components/Preloader/Preloader.css');
+
+/* 404 */
+@import url('./components/NotFound/NotFound.css');

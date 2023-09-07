@@ -1,0 +1,19 @@
+.about-project__week {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 36px;
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .about-project__week {
+    min-height: 35px;
+    font-size: 11px;
+  }
+}

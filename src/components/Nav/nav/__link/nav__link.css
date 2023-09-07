@@ -1,0 +1,18 @@
+.nav__link {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  transition: opacity 0.2s linear;
+}
+
+.nav__link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

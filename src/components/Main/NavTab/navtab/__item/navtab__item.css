@@ -1,0 +1,11 @@
+.navtab__item {
+  background-color: #303030;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .navtab__item {
+    border-radius: 6px;
+  }
+}
