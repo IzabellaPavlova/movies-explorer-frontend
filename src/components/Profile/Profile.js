@@ -3,7 +3,7 @@ import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 // import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function Profile() {
+function Profile(props) {
   // const currentUser = useContext(CurrentUserContext);
   const [IsloggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({
@@ -100,6 +100,7 @@ function Profile() {
                   to="/signin"
                   className="profile__button profile__button_type_exit"
                   type="button"
+                  onClick={props.onSignOut}
                 >
                   Выйти из аккаунта
                 </Link>
