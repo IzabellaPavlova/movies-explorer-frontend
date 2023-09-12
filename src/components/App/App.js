@@ -9,11 +9,16 @@ import Login from '../Auth/Login/Login.js';
 import Register from '../Auth/Register/Register.js';
 import NotFound from '../NotFound/NotFound.js';
 import * as auth from "../../utils/auth.js";
+import api from '../../utils/api.js';
 
 function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
+  const [isUpdateUserSuccess, setIsUpdateUserSuccess] = useState(false);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   // auth
 
@@ -21,6 +26,7 @@ function App() {
     auth.registerUser(name, email, password).then(() => {
       navigate("/signin");
     }).catch((err) => {
+      setErrorMessage(err);
       console.log(err);
     })
   }
@@ -31,7 +37,7 @@ function App() {
       setIsLoggedIn(true);
       navigate("/movies");
     }).catch((err) => {
-      console.log(err);
+      setErrorMessage(err);
     })
   }
 
@@ -55,6 +61,40 @@ function App() {
     }
   }, []);
 
+  // UserInfo, SavedMovies
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      Promise.all([api.getUserInfo(), api.getSavedMovies()])
+        .then(([userData, movies]) => {
+          setCurrentUser({ ...userData, isLoggedIn: true });
+          setSavedMovies(movies);
+          localStorage.setItem('savedMovies', JSON.stringify(movies));
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    }
+  }, [isLoggedIn]);
+
+  // Profile
+
+  function onUpdateUser(data) {
+    api.updateUserInfo(data).then((newUserInfo) => {
+      setCurrentUser(newUserInfo);
+      setIsUpdateUserSuccess(true);
+    }).catch((err) => {
+      setIsUpdateUserSuccess(false);
+      console.error(err);
+    }).finally(() => {
+      setIsInfoPopupOpen(true);
+    });
+  }
+
+  function onCloseInfoPopup() {
+    setIsInfoPopupOpen(false);
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
@@ -63,7 +103,7 @@ function App() {
           element={
             isLoggedIn
               ? <Navigate to='/movies'/>
-              : <Login onLogin={onLogin}/>
+              : <Login onLogin={onLogin} errorMessage={errorMessage}/>
             }
         />
         <Route
@@ -71,13 +111,25 @@ function App() {
           element={
             isLoggedIn
               ? <Navigate to='/movies' />
-              : <Register onRegister={onRegister}/>
+              : <Register onRegister={onRegister} errorMessage={errorMessage}/>
             }
           />
         <Route path='/' element={<Main />}/>
         <Route path='/movies' element={<Movies />}/>
         <Route path='/saved-movies' element={<SavedMovies />}/>
-        <Route path='/profile' element={<Profile onSignOut={onSignOut}/>}/>
+        <Route
+          path='/profile'
+          element={
+            <Profile
+              onSignOut={onSignOut}
+              isLoggedIn={isLoggedIn}
+              onUpdateUser={onUpdateUser}
+              isInfoPopupOpen={isInfoPopupOpen}
+              isUpdateUserSuccess={isUpdateUserSuccess}
+              onCloseInfoPopup={onCloseInfoPopup}
+            />
+          }
+        />
         <Route path="*" element={<Navigate to="/404" replace />}/>
         <Route path="/404" element={<NotFound />}/>
       </Routes>

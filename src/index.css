@@ -34,3 +34,6 @@
 
 /* 404 */
 @import url('./components/NotFound/NotFound.css');
+
+/* InfoPopup */
+@import url('./components/InfoPopup/InfoPopup.css');
