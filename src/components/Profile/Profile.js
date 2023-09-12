@@ -61,7 +61,7 @@ function Profile(props) {
 
   return (
     <div className='page'>
-      <Header IsloggedIn={props.isLoggedIn}/>
+      <Header isLoggedIn={props.isLoggedIn}/>
       <main>
         <section className="profile">
           <h1 className="profile__title">Привет, {currentUser.name}!</h1>

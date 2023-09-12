@@ -5,7 +5,7 @@ import MoviesList from '../MoviesList/MoviesList';
 import SearchForm from "../SearchForm/SearchForm";
 import { moviesFavorite } from '../../utils/constants';
 
-function SavedMovies() {
+function SavedMovies(props) {
   const [IsloggedIn, setIsLoggedIn] = useState(false);
   // const [movies, setMovies] = useState([]);
 
@@ -21,7 +21,7 @@ function SavedMovies() {
 
   return (
     <div className="page">
-      <Header IsloggedIn = {IsloggedIn}/>
+      <Header isLoggedIn={props.isLoggedIn}/>
       <main className="movies">
         <SearchForm />
         <MoviesList movies={moviesFavorite}/>

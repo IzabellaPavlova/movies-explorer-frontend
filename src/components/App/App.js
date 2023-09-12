@@ -114,9 +114,9 @@ function App() {
               : <Register onRegister={onRegister} errorMessage={errorMessage}/>
             }
           />
-        <Route path='/' element={<Main />}/>
-        <Route path='/movies' element={<Movies />}/>
-        <Route path='/saved-movies' element={<SavedMovies />}/>
+        <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
+        <Route path='/movies' element={<Movies isLoggedIn={isLoggedIn}/>}/>
+        <Route path='/saved-movies' element={<SavedMovies isLoggedIn={isLoggedIn}/>}/>
         <Route
           path='/profile'
           element={
