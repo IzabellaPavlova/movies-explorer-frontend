@@ -8,6 +8,7 @@ import Profile from '../Profile/Profile.js';
 import Login from '../Auth/Login/Login.js';
 import Register from '../Auth/Register/Register.js';
 import NotFound from '../NotFound/NotFound.js';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 import * as auth from "../../utils/auth.js";
 import api from '../../utils/api.js';
 
@@ -115,14 +116,31 @@ function App() {
             }
           />
         <Route path='/' element={<Main isLoggedIn={isLoggedIn}/>}/>
-        <Route path='/movies' element={<Movies isLoggedIn={isLoggedIn}/>}/>
-        <Route path='/saved-movies' element={<SavedMovies isLoggedIn={isLoggedIn}/>}/>
+        <Route
+          path='/movies'
+          element={
+            <ProtectedRoute
+              element={Movies}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
+        <Route
+          path='/saved-movies'
+          element={
+            <ProtectedRoute
+              element={SavedMovies}
+              isLoggedIn={isLoggedIn}
+            />
+          }
+        />
         <Route
           path='/profile'
           element={
-            <Profile
-              onSignOut={onSignOut}
+            <ProtectedRoute
+              element={Profile}
               isLoggedIn={isLoggedIn}
+              onSignOut={onSignOut}
               onUpdateUser={onUpdateUser}
               isInfoPopupOpen={isInfoPopupOpen}
               isUpdateUserSuccess={isUpdateUserSuccess}
