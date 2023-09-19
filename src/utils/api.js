@@ -1,4 +1,4 @@
-const { BASE_URL } = require('./constants');
+const { BASE_URL, MOVIES_URL } = require('./constants');
 
 class Api {
   constructor( {baseUrl} ) {
@@ -47,12 +47,35 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addSavedMovie(movie) {
+  addSavedMovie({
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    id,
+    nameRU,
+    nameEN,
+  }) {
     const requestUrl = this._baseUrl + '/movies';
     return fetch(requestUrl, {
       method: 'POST',
       headers: this._getHeaders(),
-      body: JSON.stringify(movie),
+      body: JSON.stringify({
+        country: country,
+        director: director,
+        duration: duration,
+        year: year,
+        description: description,
+        image: MOVIES_URL + image.url,
+        trailerLink: trailerLink,
+        thumbnail: MOVIES_URL + image.formats.thumbnail.url,
+        movieId: id,
+        nameRU: nameRU,
+        nameEN: nameEN,
+      }),
     }).then(this._checkResponse);
   }
 
