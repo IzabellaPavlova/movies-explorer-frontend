@@ -3,28 +3,82 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import MoviesList from '../MoviesList/MoviesList';
 import SearchForm from "../SearchForm/SearchForm";
-import { moviesFavorite } from '../../utils/constants';
+import Preloader from "../Preloader/Preloader";
+import api from '../../utils/api';
 
 function SavedMovies(props) {
-  const [IsloggedIn, setIsLoggedIn] = useState(false);
-  // const [movies, setMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')));
+  const [moviesSearch, setMoviesSearch] = useState([]);
+  const [preloader, setPreloader] = useState(false);
+  const [emptyResult, setEmptyResult] = useState(false);
+
+  // catch saved movies
+
+  function getSavedMovies() {
+    api.getSavedMovies()
+      .then((data) => {
+        setPreloader(true);
+        setSavedMovies(data);
+        localStorage.setItem('savedMovies', JSON.stringify(data));
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => setPreloader(false));
+  }
 
   useEffect(() => {
-    setIsLoggedIn(true);
+    getSavedMovies();
   }, []);
 
-  useEffect(() => {
-    if (IsloggedIn) {
-      // setMovies(moviesList);
+  // search
+
+  function handleSearchMovies(searchOptions) {
+    const { query, isShortFilms } = searchOptions;
+    const searchResult = savedMovies.filter((movie) => {
+      const ruMovies = (query !== '') ? movie.nameRU.toLowerCase().includes(query.toLowerCase()) : true;
+      const enMovies = (query !== '') ? movie.nameEN.toLowerCase().includes(query.toLowerCase()) : true;
+      const short = movie.duration <= 40;
+      if (isShortFilms) {
+        return (short && (ruMovies || enMovies))
+      } else {
+        return (ruMovies || enMovies);
+      }
+    });
+    if (searchResult.length === 0) {
+      setEmptyResult(true);
     }
-  }, [IsloggedIn]);
+    else {
+      setEmptyResult(false);
+    }
+    setMoviesSearch(searchResult);
+  }
+
+  // dislike
+
+  function removeMovie(savedMovie) {
+    api.removeMovie(savedMovie._id)
+      .then((data) => {
+        getSavedMovies();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   return (
     <div className="page">
       <Header isLoggedIn={props.isLoggedIn}/>
       <main className="movies">
-        <SearchForm />
-        <MoviesList movies={moviesFavorite}/>
+        <SearchForm onSearch={handleSearchMovies} />
+        {(emptyResult) && <span className='movies-list__error'>Ничего не найдено</span>}
+        {preloader && <Preloader />}
+        {(!emptyResult) &&
+          <MoviesList
+            movies={moviesSearch.length === 0 ? savedMovies : moviesSearch}
+            onSave={removeMovie}
+          />
+        }
       </main>
       <Footer />
     </div>

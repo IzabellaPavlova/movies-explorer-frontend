@@ -19,7 +19,6 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isInfoPopupOpen, setIsInfoPopupOpen] = useState(false);
   const [isUpdateUserSuccess, setIsUpdateUserSuccess] = useState(false);
-  const [savedMovies, setSavedMovies] = useState([]);
 
   // auth
 
@@ -69,7 +68,6 @@ function App() {
       Promise.all([api.getUserInfo(), api.getSavedMovies()])
         .then(([userData, movies]) => {
           setCurrentUser({ ...userData, isLoggedIn: true });
-          setSavedMovies(movies);
           localStorage.setItem('savedMovies', JSON.stringify(movies));
         })
         .catch((error) => {

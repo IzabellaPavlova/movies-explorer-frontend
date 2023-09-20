@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import {MOVIES_URL} from '../../utils/constants';
 
 function Card(props) {
-  // const [isFavorite, setIsFavorite] = useState(false);
   const { pathname } = useLocation();
   const isLiked = props.savedMovies.some(i => i.movieId === props.movie.id);
 
@@ -17,7 +15,11 @@ function Card(props) {
 
   return (
     <section className="card">
-      <img src={`${MOVIES_URL}${props.movie.image.url}`} alt="Обложка фильма" className="card__image"></img>
+      <img
+        src={pathname === '/movies' ? `${MOVIES_URL}${props.movie.image.url}` : props.movie.image}
+        alt="Обложка фильма"
+        className="card__image"
+      ></img>
       <div className="card__container">
         <h2 className="card__title">{props.movie.nameRU}</h2>
         <p className="card__duration">
