@@ -75,7 +75,7 @@ function SavedMovies(props) {
         {preloader && <Preloader />}
         {(!emptyResult) &&
           <MoviesList
-            movies={moviesSearch.length === 0 ? savedMovies : moviesSearch}
+            movies={savedMovies ? moviesSearch.length === 0 ? savedMovies : moviesSearch : []}
             onSave={removeMovie}
           />
         }
