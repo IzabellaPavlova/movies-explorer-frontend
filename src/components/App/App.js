@@ -44,10 +44,11 @@ function App() {
   function onSignOut() {
     console.log("sign-out");
     setIsLoggedIn(false);
-    navigate("/signin");
+    localStorage.removeItem("jwt");
     localStorage.removeItem("savedMovies");
     localStorage.removeItem("searchOptions");
     localStorage.removeItem("searchResult");
+    navigate("/signin");
   }
 
   useEffect(() => {
