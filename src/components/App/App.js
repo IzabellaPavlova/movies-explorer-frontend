@@ -48,7 +48,7 @@ function App() {
     localStorage.removeItem("savedMovies");
     localStorage.removeItem("searchOptions");
     localStorage.removeItem("searchResult");
-    navigate("/signin");
+    navigate("/");
   }
 
   useEffect(() => {
