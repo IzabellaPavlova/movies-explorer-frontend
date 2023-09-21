@@ -24,7 +24,7 @@ function App() {
 
   function onRegister(name, email, password) {
     auth.registerUser(name, email, password).then(() => {
-      navigate("/signin");
+      onLogin(email, password);
     }).catch((err) => {
       setErrorMessage(err);
       console.log(err);
