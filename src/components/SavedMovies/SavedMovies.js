@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer';
 import MoviesList from '../MoviesList/MoviesList';
 import SearchForm from "../SearchForm/SearchForm";
 import api from '../../utils/api';
+import { MAX_SHORT_DURATION } from "../../utils/constants";
 
 function SavedMovies(props) {
   const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')));
@@ -38,7 +39,7 @@ function SavedMovies(props) {
     const searchResult = savedMovies.filter((movie) => {
       const ruMovies = (query !== '') ? movie.nameRU.toLowerCase().includes(query.toLowerCase()) : true;
       const enMovies = (query !== '') ? movie.nameEN.toLowerCase().includes(query.toLowerCase()) : true;
-      const short = movie.duration <= 40;
+      const short = movie.duration <= MAX_SHORT_DURATION;
       if (isShortFilms) {
         return (short && (ruMovies || enMovies))
       } else {

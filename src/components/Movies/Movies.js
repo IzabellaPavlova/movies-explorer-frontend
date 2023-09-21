@@ -6,11 +6,17 @@ import SearchForm from '../SearchForm/SearchForm';
 import Preloader from '../Preloader/Preloader';
 import api from '../../utils/api';
 import moviesApi from '../../utils/moviesApi';
+import { SCREEN_WIDTH, ADD_MORE_CARDS, CARDS_NUMBER, MAX_SHORT_DURATION } from "../../utils/constants";
 
 function Movies(props) {
   const [movies, setMovies] = useState([]);
   const [savedMovies, setSavedMovies] = useState([]);
-  const [moviesSearch, setMoviesSearch] = useState([]);
+  const [moviesSearch, setMoviesSearch] = useState(
+    localStorage.getItem('searchResult')
+    ? JSON.parse(localStorage.getItem('searchResult'))
+    : []
+  );
+  const [displayCards, setDisplayCards] = useState(12);
   const [emptyResult, setEmptyResult] = useState(false);
   const [preloader, setPreloader] = useState(false);
   const [searchError, setSearchError] = useState('');
@@ -18,6 +24,8 @@ function Movies(props) {
   const searchOptions = JSON.parse(localStorage.getItem('searchOptions')) || {};
   const query = searchOptions.query || '';
   const isShortFilms = searchOptions.isShortFilms || false;
+
+  const renderedMovies = moviesSearch.slice(0, displayCards);
 
   // catch movies
 
@@ -107,7 +115,7 @@ function Movies(props) {
       searchResult = movies.filter((movie) => {
         const ruMovies = movie.nameRU.toLowerCase().includes(query.toLowerCase());
         const enMovies = movie.nameEN.toLowerCase().includes(query.toLowerCase());
-        const short = movie.duration <= 40;
+        const short = movie.duration <= MAX_SHORT_DURATION;
         if (isShortFilms) {
           return (short && (ruMovies || enMovies))
         } else {
@@ -125,6 +133,42 @@ function Movies(props) {
     setMoviesSearch(searchResult);
   }
 
+  // cards number
+  useEffect(() => {
+    updateDisplayCards();
+    window.addEventListener("resize", () => {
+      updateDisplayCards();
+    });
+
+    return () => {
+      window.removeEventListener("resize", updateDisplayCards);
+    };
+  }, [moviesSearch]);
+
+  function updateDisplayCards() {
+    const screenWidth = window.innerWidth;
+    let number;
+    if (screenWidth >= SCREEN_WIDTH.LARGE) {
+      number = CARDS_NUMBER.LARGE;
+    } else if (screenWidth < SCREEN_WIDTH.LARGE && screenWidth > SCREEN_WIDTH.MOBILE) {
+      number = CARDS_NUMBER.TABLET;
+    } else {
+      number = CARDS_NUMBER.MOBILE;
+    }
+    setDisplayCards(number);
+  }
+
+  const handleAddMoreCards = () => {
+    const windowWidth = window.innerWidth;
+    let number;
+    if (windowWidth >= SCREEN_WIDTH.LARGE) {
+      number = ADD_MORE_CARDS.THREE;
+    } else {
+      number = ADD_MORE_CARDS.TWO;
+    }
+    setDisplayCards(displayCards + number);
+  };
+
   return (
     <div className="page">
       <Header isLoggedIn={props.isLoggedIn}/>
@@ -135,9 +179,12 @@ function Movies(props) {
         {preloader && <Preloader />}
         {(!emptyResult && query !== '') &&
           <MoviesList
-            movies={JSON.parse(localStorage.getItem('searchResult')) || moviesSearch}
+            movies={moviesSearch}
             savedMovies={savedMovies}
             onSave={handleSaveMovie}
+            renderedMovies={renderedMovies}
+            handleAddMoreCards={handleAddMoreCards}
+            displayCards={displayCards}
           />
         }
       </main>
