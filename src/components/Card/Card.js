@@ -15,11 +15,13 @@ function Card(props) {
 
   return (
     <section className="card">
-      <img
-        src={pathname === '/movies' ? `${MOVIES_URL}${props.movie.image.url}` : props.movie.image}
-        alt="Обложка фильма"
-        className="card__image"
-      ></img>
+      <a href={props.movie.trailerLink} target="_blank" rel="noreferrer">
+        <img
+          src={pathname === '/movies' ? `${MOVIES_URL}${props.movie.image.url}` : props.movie.image}
+          alt="Обложка фильма"
+          className="card__image"
+        />
+      </a>
       <div className="card__container">
         <h2 className="card__title">{props.movie.nameRU}</h2>
         <p className="card__duration">
