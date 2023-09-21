@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
 
 function SearchForm(props) {
   const [query, setQuery] = useState(props.query || '');
   const [isShortFilms, setIsShortFilms] = useState(props.isShortFilms || false);
-  const { pathname } = useLocation();
+  const [queryError, setQueryError] = useState(false);
 
   const queryErrorClass = (
-    `search-form__input-error ${((query === '') && pathname === "/movies")
+    `search-form__input-error ${queryError
       ? 'search-form__input-error_visible'
       : ''
     }`
@@ -32,6 +31,11 @@ function SearchForm(props) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    if (query === "") {
+      setQueryError(true);
+      return;
+    }
+    setQueryError(false);
     submitCallback(isShortFilms)
   };
 
@@ -43,7 +47,6 @@ function SearchForm(props) {
             className="search-form__input"
             placeholder="Фильм"
             value={query}
-            required
             onChange={handleQueryInput}
           >
           </input>
