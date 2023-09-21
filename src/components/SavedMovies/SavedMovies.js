@@ -15,9 +15,9 @@ function SavedMovies(props) {
   // catch saved movies
 
   function getSavedMovies() {
+    setPreloader(true);
     api.getSavedMovies()
       .then((data) => {
-        setPreloader(true);
         setSavedMovies(data);
         localStorage.setItem('savedMovies', JSON.stringify(data));
       })
