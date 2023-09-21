@@ -3,19 +3,18 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import MoviesList from '../MoviesList/MoviesList';
 import SearchForm from "../SearchForm/SearchForm";
-import Preloader from "../Preloader/Preloader";
 import api from '../../utils/api';
 
 function SavedMovies(props) {
   const [savedMovies, setSavedMovies] = useState(JSON.parse(localStorage.getItem('savedMovies')));
   const [moviesSearch, setMoviesSearch] = useState([]);
-  const [preloader, setPreloader] = useState(false);
   const [emptyResult, setEmptyResult] = useState(false);
+  const [query, setQuery] = useState('');
+  const [isShort, setIsShort] = useState(false);
 
   // catch saved movies
 
   function getSavedMovies() {
-    setPreloader(true);
     api.getSavedMovies()
       .then((data) => {
         setSavedMovies(data);
@@ -24,7 +23,6 @@ function SavedMovies(props) {
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => setPreloader(false));
   }
 
   useEffect(() => {
@@ -35,6 +33,8 @@ function SavedMovies(props) {
 
   function handleSearchMovies(searchOptions) {
     const { query, isShortFilms } = searchOptions;
+    setQuery(query);
+    setIsShort(isShortFilms);
     const searchResult = savedMovies.filter((movie) => {
       const ruMovies = (query !== '') ? movie.nameRU.toLowerCase().includes(query.toLowerCase()) : true;
       const enMovies = (query !== '') ? movie.nameEN.toLowerCase().includes(query.toLowerCase()) : true;
@@ -54,6 +54,13 @@ function SavedMovies(props) {
     setMoviesSearch(searchResult);
   }
 
+  useEffect(() => {
+    handleSearchMovies({
+      query: query,
+      isShortFilms: isShort
+    });
+  }, [savedMovies]);
+
   // dislike
 
   function removeMovie(savedMovie) {
@@ -72,7 +79,6 @@ function SavedMovies(props) {
       <main className="movies">
         <SearchForm onSearch={handleSearchMovies} />
         {(emptyResult) && <span className='movies-list__error'>Ничего не найдено</span>}
-        {preloader && <Preloader />}
         {(!emptyResult) &&
           <MoviesList
             movies={savedMovies ? moviesSearch.length === 0 ? savedMovies : moviesSearch : []}

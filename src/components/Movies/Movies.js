@@ -22,7 +22,12 @@ function Movies(props) {
   // catch movies
 
   useEffect(() => {
-    getMovies();
+    if (movies.length === 0) {
+      getMovies();
+    }
+  }, []);
+
+  useEffect(() => {
     getSavedMovies();
   }, []);
 
@@ -46,7 +51,6 @@ function Movies(props) {
   }
 
   function getSavedMovies() {
-    setPreloader(true);
     api.getSavedMovies()
       .then((data) => {
         setSavedMovies(data);
@@ -55,7 +59,6 @@ function Movies(props) {
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => setPreloader(false));
   }
 
   // add & delete savedMovies
