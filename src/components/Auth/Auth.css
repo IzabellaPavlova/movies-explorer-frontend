@@ -6,6 +6,8 @@
 @import url('./auth/__input/auth__input.css');
 @import url('./auth/__input-error/auth__input-error.css');
 @import url('./auth/__input-error/_visible/auth__input-error_visible.css');
+@import url('./auth/__catch-error/auth__catch-error.css');
+@import url('./auth/__catch-error/_visible/auth__catch-error_visible.css');
 @import url('./auth/__buttons/auth__buttons.css');
 @import url('./auth/__button/auth__button.css');
 @import url('./auth/__button-wrapper/auth__button-wrapper.css');

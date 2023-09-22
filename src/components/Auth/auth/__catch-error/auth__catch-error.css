@@ -1,0 +1,11 @@
+.auth__catch-error {
+  min-height: 15px;
+  margin-top: -20px;
+  font-size: 10px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  color: #EE3465;
+  text-align: center;
+  opacity: 0;
+}

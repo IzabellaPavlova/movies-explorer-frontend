@@ -22,3 +22,12 @@
     font-size: 12px;
   }
 }
+
+.auth__button[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.auth__button[disabled]:hover {
+  opacity: 0.4;
+}

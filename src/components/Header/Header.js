@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import Logo from '../Logo/Logo';
 import Navigation from '../Nav/Nav';
 
-function Header({ IsloggedIn }) {
+function Header(props) {
   return (
     <header className="header">
       <Logo />
-      {(IsloggedIn ?
+      {(props.isLoggedIn ?
           <Navigation />
         :
         <nav className="header__auth">

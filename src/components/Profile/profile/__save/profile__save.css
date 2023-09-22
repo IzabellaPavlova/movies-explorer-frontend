@@ -23,3 +23,12 @@
     width: 260px;
   }
 }
+
+.profile__save[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.profile__save[disabled]:hover {
+  opacity: 0.4;
+}
