@@ -30,21 +30,18 @@ function Movies(props) {
   // catch movies
 
   useEffect(() => {
-    if (movies.length === 0) {
-      getMovies();
-    }
-  }, []);
-
-  useEffect(() => {
     getSavedMovies();
   }, []);
 
-  function getMovies() {
-    setPreloader(true);
-    moviesApi.getMovies()
+  function getMovies(searchOptions) {
+    const { query, isShortFilms } = searchOptions;
+    if (!localStorage.getItem('movies')) {
+      setPreloader(true);
+      moviesApi.getMovies()
       .then((data) => {
         setMovies(data);
         localStorage.setItem('movies', JSON.stringify(data));
+        handleSearchMovies(data, query, isShortFilms);
         setSearchError('');
       })
       .catch((err) => {
@@ -55,7 +52,14 @@ function Movies(props) {
           Подождите немного и попробуйте ещё раз.`
         );
       })
-      .finally(() => setPreloader(false));
+      .finally(() => {
+        setPreloader(false)
+      });
+    }
+    else {
+      const movies = JSON.parse(localStorage.getItem('movies'));
+      handleSearchMovies(movies, query, isShortFilms);
+    }
   }
 
   function getSavedMovies() {
@@ -107,9 +111,8 @@ function Movies(props) {
 
   // search
 
-  function handleSearchMovies(searchOptions) {
-    localStorage.setItem('searchOptions', JSON.stringify(searchOptions));
-    const { query, isShortFilms } = searchOptions;
+  function handleSearchMovies(movies, query, isShortFilms) {
+    localStorage.setItem('searchOptions', JSON.stringify({query: query, isShortFilms: isShortFilms}));
     let searchResult = [];
     if (query !== '') {
       searchResult = movies.filter((movie) => {
@@ -173,7 +176,7 @@ function Movies(props) {
     <div className="page">
       <Header isLoggedIn={props.isLoggedIn}/>
       <main className="movies">
-        <SearchForm onSearch={handleSearchMovies} query={query} isShortFilms={isShortFilms}/>
+        <SearchForm onSearch={getMovies} query={query} isShortFilms={isShortFilms}/>
         {(emptyResult) && <span className='movies-list__error'>Ничего не найдено</span>}
         {(searchError) && <span className='movies-list__error'>{searchError}</span>}
         {preloader && <Preloader />}

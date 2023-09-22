@@ -45,6 +45,7 @@ function App() {
     console.log("sign-out");
     setIsLoggedIn(false);
     localStorage.removeItem("jwt");
+    localStorage.removeItem("movies");
     localStorage.removeItem("savedMovies");
     localStorage.removeItem("searchOptions");
     localStorage.removeItem("searchResult");
